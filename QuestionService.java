@@ -15,7 +15,7 @@ public class QuestionService {
   public void playQuiz() {
 
     int i = 0;
-    for(Question q : questions) {
+    for (Question q : questions) {
 
       System.out.println("Question no: " + q.getId());
       System.out.println(q.getQuestion());
@@ -30,10 +30,24 @@ public class QuestionService {
       i++;
     }
 
-    for(String s: selection) {
+    for (String s : selection) {
       System.out.println(s);
     }
 
+  }
+
+  public void printScore() {
+    int score = 0;
+
+    for (int i = 0; i < questions.length; i++) {
+      String answer = questions[i].getAnswer();
+
+      if ( selection[i].equals(answer)) {
+        score++;
+      }
+    }
+
+    System.out.println(" Your final score is :" + score);
   }
 
 }
